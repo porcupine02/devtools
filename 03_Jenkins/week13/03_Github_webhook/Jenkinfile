@@ -1,10 +1,10 @@
-# edit pipline
+
 pipeline {
     agent any
 
     environment {
         // Define variables
-        DOCKER_IMAGE       = 'tuchsanai/fastapi-webhook:latest'
+        DOCKER_IMAGE       = 'fern018/fastapi-webhook:latest'
         DOCKER_CREDENTIALS = credentials('dockerhub')
     }
 
@@ -39,18 +39,6 @@ pipeline {
                     sh 'echo $DOCKER_CREDENTIALS_PSW | docker login --username $DOCKER_CREDENTIALS_USR --password-stdin'
                     // Push the image
                     sh 'docker push $DOCKER_IMAGE'
-                }
-            }
-        }
-
-        stage('Clear Docker Components') {
-            steps {
-                script {
-                    // Remove Docker images and containers
-                    sh 'docker stop $(docker ps -a -q)'  
-                    sh  'docker rm $(docker ps -a -q)' 
-                    sh  'docker rmi $(docker images -q)'
-                    sh 'docker system prune -af'
                 }
             }
         }
