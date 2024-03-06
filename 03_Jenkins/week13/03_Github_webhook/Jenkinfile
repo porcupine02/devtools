@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         // Define variables
-        DOCKER_IMAGE       = 'porcupine/fastapi-webhook:latest'
+        DOCKER_IMAGE       = 'fern018/fastapi-webhook:latest'
         DOCKER_CREDENTIALS = credentials('ssh-prod_instance')
     }
 
