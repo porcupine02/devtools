@@ -4,7 +4,7 @@ pipeline {
     environment {
         // Define variables
         DOCKER_IMAGE       = 'fern018/fastapi-webhook:latest'
-        DOCKER_CREDENTIALS = credentials('ssh-prod_instance')
+        DOCKER_CREDENTIALS = credentials('github')
     }
 
     stages {
