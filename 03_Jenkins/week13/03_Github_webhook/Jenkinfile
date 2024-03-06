@@ -7,7 +7,7 @@ pipeline {
         // Define variables
 
         DOCKER_IMAGE       = 'fern018/fastapi-webhook:latest'
-        DOCKER_CREDENTIALS = credentials('porcupine')
+        DOCKER_CREDENTIALS = credentials('9617f6ca-6aa6-4611-8bb3-817479d8b4e1')
     }
 
     stages {
